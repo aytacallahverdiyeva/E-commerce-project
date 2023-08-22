@@ -1,0 +1,128 @@
+.products{
+    padding: 30px 40px;
+    width: 100%;
+    h2{
+        font-size: 42px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #010f01;
+        font-weight: 300;
+    }
+    p{
+        margin-top: 10px;
+        color: #9a9a9a;
+    }
+    .container{
+        display: flex;
+        margin-top: 20px;
+        max-width: 100%;
+        justify-content: space-between;
+        .filter{
+            .categories{
+                h3{
+                    font-weight: 600;
+                    color: #010f01;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                }
+                ul{
+                    margin-top: 10px;
+                    li{
+                        margin-top: 20px;
+                        color: #010f01;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .products-box{
+            margin-right: 10%;
+            margin-left: 10%;
+            .container-1{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .box{
+                        padding: 10px 20px;
+                        overflow: hidden;
+                        width: 300px;
+                        height: 410px;
+                        border: 1px solid #e2e0e0;
+                        border-radius: 7px;
+                        margin-bottom: 20px;
+                        transition: 1.8s;
+                        cursor: pointer;
+                        &:hover{
+                            border: none;
+                            box-shadow: rgba(0, 0, 0,  0.24) 0px 3px 8px;
+                        }
+                        .img-box{
+                            display: flex;
+                            justify-content: space-between;
+                            border-bottom: 1px solid #e2e0e0;
+                            img{
+                                width: 270px;
+                                height: 250px;
+                                margin-right: 30px;
+                            }
+                            &:hover{
+                                .icon{
+                                    z-index: 1;
+                                    position: relative;
+                                    right: 0;
+                                    display: flex;
+                                    flex-direction: column;
+                                    transform: translateX(-80px);
+                                    margin-top: 20px;
+                                    transition: 0.6s;
+                                    li{
+                                        padding: 10px 10px;
+                                        // border: 1px solid #9a9a9a;
+                                        border-radius: 3px;
+                                        color: #010f1c;
+                                        box-shadow: rgba(0, 0, 0,  0.24) 0px 3px 8px;
+                                        background: #fff;
+                                        cursor: pointer;
+                                        transition: 0.5s;
+                                        font-size: 20px;
+                                        &:hover{
+                                            background-color: #0989ff;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                        .detail{
+                            margin-top: 10px;
+                            p{
+                                color: #9a9a9a;
+                                font-size: 14px;
+                            }
+                            h3{
+                                color: #010f1c;
+                                font-size: 16px;
+                                margin-top: 5px;
+                                transition: 0.5s;
+                            }
+                            h4{
+                                margin-top: 5px;
+                                letter-spacing: 1px;
+                                font-size: 14px;
+                                color: #0989ff;
+                                letter-spacing: 1px;
+                            }
+                        }
+                        &:hover{
+                            .detail{
+                                h3{
+                                    color: #0989ff;
+                                }
+                            }
+                        }
+                }
+            }
+        }
+    }
+}

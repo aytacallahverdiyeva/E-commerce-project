@@ -1,0 +1,110 @@
+.free{
+    padding: 10px 30px;
+    width: 100%;
+    background: #010f1c;
+    display: flex;
+    .icon{
+        color: #f3b123;
+        font-size: 32px;
+    }
+    p{
+        margin-left: 10px;
+        margin-top: 8px;
+        color: #f6f7f9;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+.main-header{
+    padding: 30px 40px;
+    width: 100%;
+    border-bottom: 1px solid #010f1c;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        .search-box{
+            margin-right: 30px;
+            input{
+                outline: none;
+                padding: 10px 30px;
+                border: 3px solid #0989ff;
+                width: 300px;
+                // color: #ecf2f7;
+                color: #010f1c;
+            }
+            button{
+                border: 3px solid #0989ff;
+                outline: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                background: #0989ff;
+                color: #ecf2f7;
+            }
+        }
+        .icon{
+            display: flex;
+            margin-right: 50px;
+            .account{
+                display: flex;
+                margin-right: 30px;
+                .user-icon{
+                    margin-right: 10px;
+                    font-size: 22px;
+                    color: #010f1c;
+                    cursor: pointer;
+                }
+                p{
+                    margin: 2px 5px 0 0;
+                }
+            }
+            .second-icon{
+                display: flex;
+                .link{
+                    margin-right: 5px;
+                    font-size: 22px;
+                    cursor: pointer;
+                    color: #0989ff;
+                }
+            }
+        }
+    }
+}
+.header{
+    width: 100%;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0,  0.35) 0px 5px 15px;
+    .container{
+        display: flex;
+        max-width: 100%;
+        justify-content: space-between;
+        .nav{
+            ul{
+                display: flex;
+                li{
+                    margin-left: 20px ;
+                    .link{
+                        text-decoration: none;
+                        color: #010f1c;
+                        transition: 0.5s;
+                        &:hover{
+                            color: #0989ff;
+                        }
+                    }
+                }
+            }
+        }
+        .auth{
+            margin-right: 20px;
+            font-size: 22px;
+            cursor: pointer;
+            button{
+                margin-right: 20px;
+                font-size: 22px;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background: none;
+            }
+        }
+    }
+}

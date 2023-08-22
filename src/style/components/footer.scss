@@ -1,0 +1,65 @@
+footer{
+    padding: 30px 40px;
+    width: 100%;
+    background-color: #ecf2ec;
+    .container{
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .about{
+            max-width: 30%;
+            .detail{
+                p{
+                    margin-top: 20px;
+                    font-size: 16px;
+                    color: #828282;
+                }
+                .icon{
+                    margin-top: 20px;
+                    display: flex;
+                    li{
+                        margin-left: 20px;
+                        padding: 10px 10px;
+                        box-shadow: rgba(0, 0, 0, 0.15) 1.90px 1.90px 2.5px;
+                        cursor: pointer;
+                        transition: 0.5s;
+                        &:hover{
+                            color: #fff;
+                            background-color: #0989ff;
+                            border-radius: 5px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .account, .information, .talktous{
+            margin-top: 30px;
+            h3{
+                font-size: 32px;
+                color: #010f1c;
+            }
+            ul{
+                margin-top: 10px;
+                margin-left: 20px;
+                li{
+                    list-style-type: disc;
+                    margin-top: 5px;
+                    transition: 1s;
+                    &:hover{
+                        color: #0989ff;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .talktous{
+            li{
+                margin-top: 8px;
+                a{
+                    color: #010f1c;
+                }
+            }
+        }
+    }
+}
