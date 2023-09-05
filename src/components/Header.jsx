@@ -42,9 +42,7 @@ const Header = ({btnsearch}) => {
                     </div>
                     <p>Hello, {user.name}</p>
                     </div>
-                    )
-                }
-                
+                    )}
                     <div className="second-icon">
                         <Link to="/" className='link'><AiOutlineHeart/></Link>
                         <Link to="/cart" className='link'><BsBagCheck/></Link>

@@ -7,12 +7,41 @@ import { FiTruck, FiDollarSign } from 'react-icons/fi';
 import { CiDiscount1 } from 'react-icons/ci';
 import { PiHeadphonesLight } from 'react-icons/pi';
 import { AiOutlineShoppingCart, AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
+import { GrClose } from 'react-icons/gr';
 
 
-const Home = () => {
+const Home = ({detail, view, close, setClose, addtocart}) => {
   // const [homeProduct, setHomeProduct] = useState(HomeProducts)
   return (
     <>
+        {
+        close ? 
+
+        <div className="product-detail-page">
+        <div className="container">
+            <button onClick={()=>setClose(false)} className='closebtn'><GrClose /></button>
+            {
+            detail.map((e)=> {
+                    // console.log(e)
+                    return(
+                        <div className="product-container">
+                            <div className="img-box">
+                                <img src={e.img} alt={e.title} />
+                            </div>
+                            <div className="detail">
+                                <h5>{e.cap}</h5>
+                                <h3>{e.title}</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas esse dolorem. Illum facere temporibus tenetur maxime earum incidunt deserunt atque illo, in velit consequatur veritatis cupiditate perspiciatis nisi libero!</p>
+                                <h4>{e.price}</h4>
+                                <button>Add To Cart</button>
+                            </div>
+                        </div>
+                    )
+            }) 
+        }
+        </div>
+    </div> : null
+    }
     {/* carousel slider ------------------------------------ */}
     <div className='top-banner'>
         <div className="container">
@@ -124,8 +153,8 @@ const Home = () => {
                 <div className='img-box'>
                   <img src={e.img} alt={e.title} />
                   <div className='icon'> 
-                  <li><AiOutlineShoppingCart/></li>
-                  <li><AiOutlineEye/></li>
+                  <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li>
+                  <li onClick={()=> view(e)} ><AiOutlineEye/></li>
                   <li><AiOutlineHeart/></li>
                   </div>
                 </div>
@@ -150,7 +179,7 @@ const Home = () => {
       <div className="img-box">
         <img src="./img/hp banner photo.png" alt="banner-photo" className='comp' />
         <img src="./img/banner-slider-offer.png" alt="banner-offer"  className='offer'/>
-      </div>
+      </div> 
       </div>
     </div>
     </>

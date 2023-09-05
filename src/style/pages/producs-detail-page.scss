@@ -1,0 +1,85 @@
+.product-detail-page{
+    margin-top: 30px;
+    padding: 30px 40px;
+    width: 100%;
+    height: 120%;
+    margin-top: -25%;
+    background: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    z-index: 1;
+    img{
+        width: 320px;
+        height: 300px;
+    }
+    .container{
+        margin-top: 8%;
+        margin-left: 10%;
+        padding: 20px 30px;
+        border-radius: 7px;
+        width: 1000px;
+        height: 550px;
+        background-color: #fff;
+        box-shadow: -1px 2px 28px -14px rgba(0,0,0,0.9);
+        .closebtn{
+            margin-left: 98%;
+             margin-top: 1px;
+            border: none;
+            outline: none;
+            background-color: #fff;
+            color: none;
+            font-size: 22px;
+            // border-radius: 50%;
+            cursor: pointer;
+        }
+        .product-container{
+            padding: 20px 30px;
+            display: flex;
+            max-width: 100%;
+            margin-top: 25px;
+            justify-content: space-between;
+            .detail{
+                margin-left: 30px;
+                margin-top: 10px;
+                h5, h3, h4{
+                    letter-spacing: 1px;
+                }
+                h5{
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    color: #9a9a9a;
+                }
+                h3{
+                    margin-top: 25px;
+                    font-size: 30px;
+                    color: #010f1c;
+                    text-transform: capitalize;
+                }
+                p{
+                    margin-top: 10px;
+                    color: #4a4a4a;
+                }
+                h4{
+                    color: #010f1c;
+                    font-size: 32px;
+                    margin-top: 10px;
+                }
+                button{
+                    margin-top: 25px;
+                    padding: 15px 55px;
+                    font-size: 17px;
+                    color: #fff;
+                    background-color: #010f1c;
+                    border-radius: 5px;
+                    border: none;
+                    outline: none;
+                    transition: 0.4s;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #0989ff;
+                    }
+                }
+            }
+        }
+    }
+}

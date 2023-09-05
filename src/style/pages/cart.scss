@@ -1,0 +1,44 @@
+.containerrr{
+    padding: 40px 50px;
+    width: 100%;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #9a9a9a;
+    .empty-box{
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2{
+            color: #010f1c;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 32px;
+        }
+        .empty-junior-box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .empty-shop-icon{
+                font-size: 76px;
+                color: #0989ff;
+                margin-top: 10px;
+                &:hover{
+                    transform: scale(1.3);
+                    transition: 0.5s;
+                }
+            }
+            .empty-btn{
+                margin-top: 20px;
+                color: #fff;
+                padding: 10px 20px;
+                background-color: #010f1c;
+                &:hover{
+                    color: #fff;
+                    background-color: #0989ff;
+                    cursor: pointer;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}

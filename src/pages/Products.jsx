@@ -1,45 +1,60 @@
 import React from 'react';
 import ProductDetail from "../products/products-detail";
-import { AiOutlineShoppingCart, AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineShoppingCart, AiOutlineEye, AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
+import { GrClose } from 'react-icons/gr';
 // import ProductDetailPage from './ProductDetailPage';
 
 
-const Products = ({product, setProduct, detail}) => {
+const Products = ({product, setProduct, detail, view, close, setClose, addtocart}) => {
     //here is hook
     // const [product, setProduct] = useState(ProductDetail)
     const selectProduct = (product) =>{
         const updateProductFunc = ProductDetail.filter((e) => {
-            return e.cap ==product
+            return e.cap == product
             // console.log(e.cap)
         })
         setProduct(updateProductFunc)
     }
-  return (
+    return (
     <>
-    <div className="product-detail-page">
-        <div className="container">{
+    {
+        close ? 
+
+        <div className="product-detail-page">
+        <div className="container">
+            <button onClick={()=>setClose(false)} className='closebtn'><GrClose /></button>
+            {
             detail.map((e)=> {
                     // console.log(e)
                     return(
                         <div className="product-container">
                             <div className="img-box">
-                                <img src={e.img} alt="" />
+                                <img src={e.img} alt={e.title} />
+                            </div>
+                            <div className="detail">
+                                <h5>{e.cap}</h5>
+                                <h3>{e.title}</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas esse dolorem. Illum facere temporibus tenetur maxime earum incidunt deserunt atque illo, in velit consequatur veritatis cupiditate perspiciatis nisi libero!</p>
+                                <h4>{e.price}</h4>
+                                <button>Add To Cart</button>
                             </div>
                         </div>
                     )
-            })
+            }) 
         }
         </div>
-    </div>
+    </div> : null
+    }
+
     <div className='products'>
-        <h2># Products</h2>
+        <h2>Products</h2>
         <p>Home products</p>
         <div className="container">
             <div className="filter">
                 <div className="categories">
                     <h3>Categories</h3>
                     <ul>
-                        <li onClick={()=> selectProduct ("Phone")}>Phone</li>
+                        <li onClick={()=>  selectProduct ("Phone")}>Phone</li>
                         <li onClick={()=>  selectProduct ("Tablet")}>Tablet</li>
                         <li onClick={()=>  selectProduct ("Smart Watch")}>Smart Watch</li>
                         <li onClick={()=>  selectProduct ("Headphone")}>Headphone</li>
@@ -60,19 +75,19 @@ const Products = ({product, setProduct, detail}) => {
                                 <>
                                 <div className="box" key={e.id}>
                 <div className='img-box'>
-                  <img src={e.img} alt={e.title} />
-                  <div className='icon'> 
-                  <li><AiOutlineShoppingCart/></li>
-                  <li><AiOutlineEye/></li>
-                  <li><AiOutlineHeart/></li>
-                  </div>
+                    <img src={e.img} alt={e.title} />
+                    <div className='icon'> 
+                    <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li>
+                    <li onClick={()=> view(e) }><AiOutlineEye/></li>
+                    <li><AiOutlineHeart/></li>
+                    </div>
                 </div>
                 <div className='detail'>
-                  <p>{e.cap}</p>
-                  <h3>{e.title}</h3>
-                  <h4>{e.price}</h4>
+                    <p>{e.cap}</p>
+                    <h3>{e.title}</h3>
+                    <h4>{e.price}</h4>
                 </div>
-              </div>
+                </div>
                                 </>
                             )
                         })
@@ -82,7 +97,7 @@ const Products = ({product, setProduct, detail}) => {
         </div>
     </div>
     </>
-  )
+    )
 }
 
 export default Products

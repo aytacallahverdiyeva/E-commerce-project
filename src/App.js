@@ -9,6 +9,11 @@ import Footer from './components/Footer';
 
 
 const App = () => {
+  // add to cart system
+  const [cart, setCart] = useState([])
+  //product detail close system
+  const [close, setClose] = useState(false)
+
   const [detail, setDetail]= useState([])
   // product filtering hook
   const [product, setProduct] = useState(ProductDetail)
@@ -18,11 +23,30 @@ const App = () => {
     })
     setProduct(change)
   }
+  // Product Detail
+  const view = (product) =>{
+    setDetail([{...product}])
+    setClose(true)
+  }
+  // Add to cart system
+  const addtocart = (product) => { 
+    const result = cart.find((e) => {
+      return e.id === product.id
+    })
+    if(result){
+      alert("This Product is already added to cart")
+    } 
+    else{
+      setCart([...cart, {...product, count:1}])
+      alert("Product is added to cart")
+    }
+}
+console.log(cart)
   return (
     <>
     <BrowserRouter >
     <Header btnsearch={btnsearch}/>
-    <Rout product={product} setProduct={setProduct} detail={detail}/>
+    <Rout product={product} setProduct={setProduct} detail={detail} view={view} close={close} setClose={setClose}cart={cart} setCart={setCart} addtocart={addtocart}/>
     <Footer/>
     </BrowserRouter>
     </>
