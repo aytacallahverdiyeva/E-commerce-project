@@ -1,13 +1,18 @@
 import React from 'react';
 import ProductDetail from "../products/products-detail";
+//? icons
 import { AiOutlineShoppingCart, AiOutlineEye, AiOutlineHeart, AiOutlineClose } from 'react-icons/ai';
 import { GrClose } from 'react-icons/gr';
+//*Auth0
+import { useAuth0 } from "@auth0/auth0-react";
 // import ProductDetailPage from './ProductDetailPage';
 
 
 const Products = ({product, setProduct, detail, view, close, setClose, addtocart}) => {
     //here is hook
     // const [product, setProduct] = useState(ProductDetail)
+    const {loginWithRedirect, isAuthenticated } = useAuth0();
+
     const selectProduct = (product) =>{
         const updateProductFunc = ProductDetail.filter((e) => {
             return e.cap == product
@@ -77,7 +82,14 @@ const Products = ({product, setProduct, detail, view, close, setClose, addtocart
                 <div className='img-box'>
                     <img src={e.img} alt={e.title} />
                     <div className='icon'> 
-                    <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li>
+                    {/* add for auth0 (use ternary) */}
+                    {
+                        isAuthenticated ? 
+                        <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li>
+                        : 
+                        <li onClick={()=> loginWithRedirect()}><AiOutlineShoppingCart/></li>
+                    }
+                    {/* <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li> */}
                     <li onClick={()=> view(e) }><AiOutlineEye/></li>
                     <li><AiOutlineHeart/></li>
                     </div>
@@ -85,7 +97,7 @@ const Products = ({product, setProduct, detail, view, close, setClose, addtocart
                 <div className='detail'>
                     <p>{e.cap}</p>
                     <h3>{e.title}</h3>
-                    <h4>{e.price}</h4>
+                    <h4>{e.price}$</h4>
                 </div>
                 </div>
                                 </>

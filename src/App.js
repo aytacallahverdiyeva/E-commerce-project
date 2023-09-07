@@ -5,6 +5,7 @@ import ProductDetail from './products/products-detail';
 // * components
 import Header from "./components/Header";
 import Footer from './components/Footer';
+import Button from "./components/Button";
 // import { useState } from 'react';
 
 
@@ -37,7 +38,7 @@ const App = () => {
       alert("This Product is already added to cart")
     } 
     else{
-      setCart([...cart, {...product, count:1}])
+      setCart([...cart, {...product, qty:1}])
       alert("Product is added to cart")
     }
 }

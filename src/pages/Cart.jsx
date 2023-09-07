@@ -5,6 +5,37 @@ import { GrClose } from 'react-icons/gr';
 import { MdOutlineShoppingCartCheckout } from 'react-icons/md';
 
 const Cart = ({cart, setCart}) => {
+    //? increment system
+    const increment =(product) =>{
+        const result = cart.find((e)=>{
+            return e.id === product.id
+        })
+        setCart(cart.map((e)=>{
+            return  e.id === product.id ? {...result, qty: result.qty + 1} : e
+        }))
+    }
+    //? decrement system
+    const decrement =(product) =>{
+        const result = cart.find((e)=>{
+            return e.id === product.id
+        })
+        setCart(cart.map((e)=>{
+            return  e.id === product.id ? {...result, qty: result.qty - 1} : e
+        }))
+    }
+    //? remove system
+    const removeProduct = (product) =>{
+        const result = cart.find((e)=>{
+            return e.id === product.id
+        })
+        if(result.qty > 0) {
+            setCart(cart.filter((e)=>{
+                return  e.id !== product.id 
+            }))
+        }
+    }
+    //? total price system
+    const totalPrice = cart.reduce((price, item) =>  price + item.qty * item.price, 0 )
   return (
     <>
     <div className="containerrr"> 
@@ -28,20 +59,32 @@ const Cart = ({cart, setCart}) => {
                             <img src={e.img} alt={e.title} />
                         </div>
                         <div className="detail">
+                            <div className="jun-detail">
                             <h4>{e.cap}</h4>
                             <h3>{e.title}</h3>
-                            <p>{e.price}</p>
+                            <p>{e.price} $</p>
                             <div className="count">
-                                <button className='increment'>+</button>
-                                <h3>Total Price: {e.price * e.count} $</h3>
+                                <button className='increment' onClick={() => increment(e)}>+</button>
+                                <input type="number" name="" id="" value={e.qty} />
+                                <button className='decrement' onClick={() => decrement(e)}>-</button>
                             </div>
-                            <button><GrClose/></button>
+                            <h4 className='sub-price'>Sub total: {e.price * e.qty} $ </h4>
+                            </div>
+                            <div className="close-btn">
+                            <button onClick={() => removeProduct(e)}><GrClose/></button>
+                            </div>
                         </div>
                     </div>
                 )
             })
         }
         </div>
+        {
+            cart.length > 0 && 
+            <div>
+                <h2 className='total-price-products'>Total Price:{totalPrice}$</h2>
+            </div>
+        }
     </div>
     </>
     )

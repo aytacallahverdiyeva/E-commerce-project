@@ -1,7 +1,11 @@
+//? components
 @import "./components/header.scss";
-@import "./base/base.scss";
-@import "./pages/home.scss";
 @import "./components/footer.scss";
+//? base
+@import "./base/base.scss";
+//? pages
+@import "./pages/home.scss";
 @import "./pages/products.scss";
 @import "./pages/producs-detail-page.scss";
 @import "./pages/cart.scss";
+@import "./pages/contact.scss";
