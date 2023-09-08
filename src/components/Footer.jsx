@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// * logo svg
+// * logo 
 import { LogoSVG } from '../SVG/svg';
 // ? icons
 import { BiLogoFacebook, BiLogoTwitter, BiLogoLinkedin, BiLogoVimeo } from 'react-icons/bi';

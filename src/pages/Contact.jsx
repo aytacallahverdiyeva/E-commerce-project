@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 //* Auth0
 import { useAuth0 } from "@auth0/auth0-react";
+//? component
+import Button from '../components/Button';
+
 
 const Contact = () => {
     const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
     // contact send message process 
     const [users, setUser] = useState( {
-        Name: '',
-        Email: '',
-        Subject: '',
-        Message: ''
+        Name: '', Email: '', Subject: '', Message: ''
     })
     let Name, Value
     const data = (e) => {
@@ -17,7 +17,6 @@ const Contact = () => {
         Value = e.target.value;
         setUser({...users, [Name]: Value })
     }
-
     const sendData = async (e) => {
         const {Name, Email, Subject, Message} = users
             e.preventDefault();
@@ -32,11 +31,8 @@ const Contact = () => {
             }
             const res = await fetch('https://e-commerce-project-7a497-default-rtdb.firebaseio.com/Message.json' , result)
             // console.log(res)
-            if(res) {
-                alert('Your Message sent')
-            } else {
-                alert('Error')
-            }
+            if(res) { alert('Your Message sent') } 
+            else { alert('Error') }
     }
     return (
     <>
@@ -73,9 +69,9 @@ const Contact = () => {
                     </fieldset>
                     {
                         isAuthenticated ? 
-                        <button type='submit' onClick={sendData}>Send Message</button>
+                        <Button type='submit' onClick={sendData}>Send Message</Button>
                         : 
-                        <button type='submit' onClick={() => loginWithRedirect()}>Login</button>
+                        <Button type='submit' onClick={() => loginWithRedirect()}>Login</Button>
                     }
                 </form>
             </div>

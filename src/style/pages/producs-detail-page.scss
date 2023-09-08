@@ -20,17 +20,6 @@
         height: 550px;
         background-color: #fff;
         box-shadow: -1px 2px 28px -14px rgba(0,0,0,0.9);
-        .closebtn{
-            margin-left: 98%;
-             margin-top: 1px;
-            border: none;
-            outline: none;
-            background-color: #fff;
-            color: none;
-            font-size: 22px;
-            // border-radius: 50%;
-            cursor: pointer;
-        }
         .product-container{
             padding: 20px 30px;
             display: flex;
@@ -64,21 +53,21 @@
                     font-size: 32px;
                     margin-top: 10px;
                 }
-                button{
-                    margin-top: 25px;
-                    padding: 15px 55px;
-                    font-size: 17px;
-                    color: #fff;
-                    background-color: #010f1c;
-                    border-radius: 5px;
-                    border: none;
-                    outline: none;
-                    transition: 0.4s;
-                    cursor: pointer;
-                    &:hover{
-                        background-color: #0989ff;
-                    }
-                }
+                // button{
+                //     margin-top: 25px;
+                //     padding: 15px 55px;
+                //     font-size: 17px;
+                //     color: #fff;
+                //     background-color: #010f1c;
+                //     border-radius: 5px;
+                //     border: none;
+                //     outline: none;
+                //     transition: 0.4s;
+                //     cursor: pointer;
+                //     &:hover{
+                //         background-color: #0989ff;
+                //     }
+                // }
             }
         }
     }

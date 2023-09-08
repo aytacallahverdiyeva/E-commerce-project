@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+//? products (8)
 import HomeProducts from '../products/home-products';
 // *icons
-import { BsArrowRight, BsCurrencyDollar } from 'react-icons/bs';
+import { BsArrowRight } from 'react-icons/bs';
 import { FiTruck, FiDollarSign } from 'react-icons/fi';
 import { CiDiscount1 } from 'react-icons/ci';
 import { PiHeadphonesLight } from 'react-icons/pi';
 import { AiOutlineShoppingCart, AiOutlineEye, AiOutlineHeart } from 'react-icons/ai';
 import { GrClose } from 'react-icons/gr';
+//? component
+import Button from '../components/Button';
 
 
 const Home = ({detail, view, close, setClose, addtocart}) => {
@@ -16,10 +19,9 @@ const Home = ({detail, view, close, setClose, addtocart}) => {
     <>
         {
         close ? 
-
         <div className="product-detail-page">
         <div className="container">
-            <button onClick={()=>setClose(false)} className='closebtn'><GrClose /></button>
+            <Button onClick={()=>setClose(false)} icon={<GrClose />} btn-type='close'/>
             {
             detail.map((e)=> {
                     // console.log(e)
@@ -32,13 +34,11 @@ const Home = ({detail, view, close, setClose, addtocart}) => {
                                 <h5>{e.cap}</h5>
                                 <h3>{e.title}</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas esse dolorem. Illum facere temporibus tenetur maxime earum incidunt deserunt atque illo, in velit consequatur veritatis cupiditate perspiciatis nisi libero!</p>
-                                <h4>{e.price}</h4>
-                                <button>Add To Cart</button>
+                                <h4>{e.price}$</h4>
+                                <Button btn-type='add-to-cart'>Add To Cart</Button>
                             </div>
                         </div>
-                    )
-            }) 
-        }
+                    )})}
         </div>
     </div> : null
     }

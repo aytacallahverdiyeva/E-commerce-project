@@ -5,14 +5,14 @@ import { AiOutlineShoppingCart, AiOutlineEye, AiOutlineHeart, AiOutlineClose } f
 import { GrClose } from 'react-icons/gr';
 //*Auth0
 import { useAuth0 } from "@auth0/auth0-react";
-// import ProductDetailPage from './ProductDetailPage';
+//? component
+import Button from '../components/Button';
 
 
 const Products = ({product, setProduct, detail, view, close, setClose, addtocart}) => {
     //here is hook
     // const [product, setProduct] = useState(ProductDetail)
     const {loginWithRedirect, isAuthenticated } = useAuth0();
-
     const selectProduct = (product) =>{
         const updateProductFunc = ProductDetail.filter((e) => {
             return e.cap == product
@@ -24,10 +24,9 @@ const Products = ({product, setProduct, detail, view, close, setClose, addtocart
     <>
     {
         close ? 
-
         <div className="product-detail-page">
         <div className="container">
-            <button onClick={()=>setClose(false)} className='closebtn'><GrClose /></button>
+            <Button onClick={()=>setClose(false)} btn-type='close'><GrClose /></Button>
             {
             detail.map((e)=> {
                     // console.log(e)
@@ -40,8 +39,8 @@ const Products = ({product, setProduct, detail, view, close, setClose, addtocart
                                 <h5>{e.cap}</h5>
                                 <h3>{e.title}</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptas esse dolorem. Illum facere temporibus tenetur maxime earum incidunt deserunt atque illo, in velit consequatur veritatis cupiditate perspiciatis nisi libero!</p>
-                                <h4>{e.price}</h4>
-                                <button>Add To Cart</button>
+                                <h4>{e.price}$</h4>
+                                <Button btn-type='add-to-cart'>Add To Cart</Button>
                             </div>
                         </div>
                     )
@@ -79,37 +78,34 @@ const Products = ({product, setProduct, detail, view, close, setClose, addtocart
                             return(
                                 <>
                                 <div className="box" key={e.id}>
-                <div className='img-box'>
-                    <img src={e.img} alt={e.title} />
-                    <div className='icon'> 
-                    {/* add for auth0 (use ternary) */}
-                    {
-                        isAuthenticated ? 
-                        <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li>
-                        : 
-                        <li onClick={()=> loginWithRedirect()}><AiOutlineShoppingCart/></li>
-                    }
-                    {/* <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li> */}
-                    <li onClick={()=> view(e) }><AiOutlineEye/></li>
-                    <li><AiOutlineHeart/></li>
-                    </div>
-                </div>
-                <div className='detail'>
-                    <p>{e.cap}</p>
-                    <h3>{e.title}</h3>
-                    <h4>{e.price}$</h4>
-                </div>
-                </div>
+                                    <div className='img-box'>
+                                        <img src={e.img} alt={e.title} />
+                                        <div className='icon'> 
+                                        {/* add for auth0 (use ternary) */}
+                                        {
+                                            isAuthenticated ? 
+                                            <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li>
+                                            : 
+                                            <li onClick={()=> loginWithRedirect()}><AiOutlineShoppingCart/></li>
+                                        }
+                                        {/* <li onClick={()=> addtocart(e)}><AiOutlineShoppingCart/></li> */}
+                                            <li onClick={()=> view(e) }><AiOutlineEye/></li>
+                                            <li><AiOutlineHeart/></li>
+                                        </div>
+                                    </div>
+                                    <div className='detail'>
+                                        <p>{e.cap}</p>
+                                        <h3>{e.title}</h3>
+                                        <h4>{e.price}$</h4>
+                                    </div>
+                                </div>
                                 </>
-                            )
-                        })
-                    }
+                            )})}
                 </div>
             </div>
         </div>
     </div>
     </>
-    )
-}
+    )}
 
 export default Products

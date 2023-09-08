@@ -1,18 +1,18 @@
 .free{
-    padding: 10px 30px;
+    padding: 4px 40px;
     width: 100%;
     background: #010f1c;
     display: flex;
     .icon{
         color: #f3b123;
-        font-size: 32px;
+        font-size: 26px;
     }
     p{
         margin-left: 10px;
         margin-top: 8px;
         color: #f6f7f9;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 400;
     }
 }
 .main-header{
@@ -29,16 +29,7 @@
                 padding: 10px 30px;
                 border: 3px solid #0989ff;
                 width: 300px;
-                // color: #ecf2f7;
                 color: #010f1c;
-            }
-            button{
-                border: 3px solid #0989ff;
-                outline: none;
-                padding: 10px 20px;
-                cursor: pointer;
-                background: #0989ff;
-                color: #ecf2f7;
             }
         }
         .icon{
@@ -97,14 +88,6 @@
             margin-right: 20px;
             font-size: 22px;
             cursor: pointer;
-            button{
-                margin-right: 20px;
-                font-size: 22px;
-                cursor: pointer;
-                outline: none;
-                border: none;
-                background: none;
-            }
         }
     }
 }

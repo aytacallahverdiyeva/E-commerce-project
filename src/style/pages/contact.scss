@@ -60,22 +60,6 @@ main{
                             font-family: 'Jost', sans-serif;
                         }
                     }
-                    button{
-                        margin-top: 30px;
-                        border: none;
-                        outline: none;
-                        width: 180px;
-                        color: #fff;
-                        background-color: #010f1c;
-                        padding: 18px 25px;
-                        font-size: 16px;
-                        cursor: pointer;
-                        transition: 0.5s;
-                        &:hover{
-                            color: #fff;
-                            background-color: #0989ff;
-                        }
-                    }
                 }
             }
         }

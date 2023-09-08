@@ -5,7 +5,6 @@ import ProductDetail from './products/products-detail';
 // * components
 import Header from "./components/Header";
 import Footer from './components/Footer';
-import Button from "./components/Button";
 // import { useState } from 'react';
 
 

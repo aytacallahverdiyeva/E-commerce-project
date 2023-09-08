@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom';
 //? icons
 import { GrClose } from 'react-icons/gr';
 import { MdOutlineShoppingCartCheckout } from 'react-icons/md';
+//? component
+import Button from '../components/Button';
 
 const Cart = ({cart, setCart}) => {
     //? increment system
-    const increment =(product) =>{
+    const increment = (product) =>{
         const result = cart.find((e)=>{
             return e.id === product.id
         })
@@ -15,7 +17,7 @@ const Cart = ({cart, setCart}) => {
         }))
     }
     //? decrement system
-    const decrement =(product) =>{
+    const decrement = (product) =>{
         const result = cart.find((e)=>{
             return e.id === product.id
         })
@@ -36,7 +38,7 @@ const Cart = ({cart, setCart}) => {
     }
     //? total price system
     const totalPrice = cart.reduce((price, item) =>  price + item.qty * item.price, 0 )
-  return (
+    return (
     <>
     <div className="containerrr"> 
     {
@@ -49,7 +51,6 @@ const Cart = ({cart, setCart}) => {
             </div>
         </div>
     }
-
         <div className="min-container">{
             // {cart.length === 0 && }
             cart.map((e) =>{
@@ -64,20 +65,18 @@ const Cart = ({cart, setCart}) => {
                             <h3>{e.title}</h3>
                             <p>{e.price} $</p>
                             <div className="count">
-                                <button className='increment' onClick={() => increment(e)}>+</button>
+                                <Button btn-type='increment' onClick={() => increment(e)}>+</Button>
                                 <input type="number" name="" id="" value={e.qty} />
-                                <button className='decrement' onClick={() => decrement(e)}>-</button>
+                                <Button btn-type='decrement' onClick={() => decrement(e)}>-</Button>
                             </div>
                             <h4 className='sub-price'>Sub total: {e.price * e.qty} $ </h4>
                             </div>
                             <div className="close-btn">
-                            <button onClick={() => removeProduct(e)}><GrClose/></button>
+                                <Button onClick={() => removeProduct(e)} icon={<GrClose />} btn-type='close'></Button>
                             </div>
                         </div>
                     </div>
-                )
-            })
-        }
+                )})}
         </div>
         {
             cart.length > 0 && 

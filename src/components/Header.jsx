@@ -5,24 +5,25 @@ import { FaTruckMoving } from 'react-icons/fa';
 import { CiLogin, CiLogout } from 'react-icons/ci';
 import {AiOutlineHeart,AiOutlineUser} from 'react-icons/ai';
 import {BsBagCheck} from 'react-icons/bs';
-// * photo of logo
+// *logo
 import {LogoSVG} from '../SVG/svg';
 // *auth0
 import { useAuth0 } from "@auth0/auth0-react";
+//* component
+import Button from '../components/Button';
 
 
 const Header = ({btnsearch}) => {
     const [search, setSearch] = useState()
-    // const btnsearch = (product)=>{
-    // }
-    // thats for login & logout system
+    // const btnsearch = (product)=>{}
+    // that's for login & logout system
     const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
-  return (
+    return (
     <>
     <header>
     <div className='free'>
         <div className='icon'><FaTruckMoving/></div>
-        <p>FREE Shipping when shoppping upto $1000</p>
+        <p>FREE Shipping when shoppping upto $570</p>
     </div>
     <div className='main-header'>
         <div className="container">
@@ -31,7 +32,7 @@ const Header = ({btnsearch}) => {
             </div>
             <div className='search-box'>
                 <input type="text" name="" value={search} onChange={(e)=> setSearch(e.target.value)} id="" placeholder='Search for Products...' autoComplete='off'/>
-                <button onClick={()=> btnsearch(search)}>Search</button>
+                <Button onClick={()=> btnsearch(search)} btn-type='search'>Search</Button>
             </div>
             <div className="icon">
                 {
@@ -54,34 +55,24 @@ const Header = ({btnsearch}) => {
         <div className='container'>
             <div className="nav">
             <ul>
-                <li>
-                    <Link to='/' className='link'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/product' className='link'>Products</Link>
-                </li>
-                <li>
-                    <Link to='/about' className='link'>About</Link>
-                </li>
-                <li>
-                    <Link to='/contact' className='link'>Contact</Link>
-                </li>
+                <li><Link to='/' className='link'>Home</Link></li>
+                <li><Link to='/product' className='link'>Products</Link></li>
+                <li><Link to='/about' className='link'>About</Link></li>
+                <li><Link to='/contact' className='link'>Contact</Link></li>
             </ul>
             </div>
             <div className="auth">
                 {
                     isAuthenticated ? 
-                    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}><CiLogout /></button>
+                    <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} btn-type='login-logout'><CiLogout /></Button>
                     :
-                    <button onClick={ () => loginWithRedirect()}><CiLogin /></button>
+                    <Button onClick={ () => loginWithRedirect()} btn-type='login-logout'><CiLogin /></Button>
                 }
             </div>
         </div>
     </div>
     </header>
-    
     </>
-  )
-}
+    )}
 
 export default Header

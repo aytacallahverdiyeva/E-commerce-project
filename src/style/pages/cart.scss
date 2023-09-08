@@ -56,8 +56,6 @@
                 .img-box{
                     padding: 10px 20px;
                     img{
-                        // width: 30%;
-                        // height: 45%;
                         width: 260px;
                         height: 265px;
                     }
@@ -91,15 +89,6 @@
                         .count{
                             display: flex;
                             margin-top: 10px;
-                            .increment, .decrement{
-                                background: none;
-                                outline: none;
-                                border: none;
-                                color: #0989ff;
-                                padding: 10px 10px;
-                                font-size: 20px;
-                                cursor: pointer;
-                            }
                             input{
                                 background: none;
                                 outline: none;
@@ -121,13 +110,6 @@
                     .close-btn{
                         margin-left: 387px;
                         margin-top: -20px;
-                        button{
-                            border: none;
-                            color: #010f1c;
-                            background: none;
-                            font-size: 20px;
-                            cursor: pointer;
-                        }
                     }
                 }
             }
